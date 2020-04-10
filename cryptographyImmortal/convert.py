@@ -1,38 +1,47 @@
-def affine(a, b, temp_list):
-    # a = b*c + d
-    c = a // b
-    d = a % b
-    if (d == 0):
-        return temp_list
+def gcd(a, b):
+    """
+    求两个整数的最大公约数, 输入的a必须大于b
+    :param a: 整型变量，其中一个数
+    :param b: 整型变量，另一个数
+    :return: 整型变量，a和b的最大公约数
+    """
+    if a % b == 0:
+        return b
+    return gcd(b, a % b)
+
+
+def return_gcd(a, b):
+    """
+    返回a与b的最大公约数，不需要考虑a和b的大小关系
+    :param a: 整型变量，其中一个数
+    :param b: 整型变量，另一个数
+    :return: 整型变量，a和b的最大公约数
+    """
+    if a > b:
+        return gcd(a, b)
     else:
-        temp_list.append(c)
-    a = b
-    b = d
-    return affine(a, b, temp_list)
+        return gcd(b, a)
 
 
-def returnList(a, b):
-    return affine(a, b, [])
+def char_to_int(char_list):
+    """
+    把字符密文/明文空间list转化为整数list，规则是a对应0，z对应25
+    :param char_list: 要转化的字符密文/明文空间list
+    :return: 转化好的整型密文/明文空间list
+    """
+    res = []
+    for i in char_list:
+        res.append(ord(i) - 97)
+    return res
 
 
-def returnInverseElementAPI(a,b):
-    list_a = returnList(a, b)
-    b_s_1 = 1
-    b_s_2 = list_a[len(list_a)-1]
-    def returnInverseElementLoop(b_1, b_2, n):
-        if(n != len(list_a)):
-            b_t_2 = list_a[len(list_a)-n-1]*b_2 + b_1
-        else:
-            if(n%2 != 0):
-                return a-b_2
-            return b_2
-        b_t_1 = b_2
-        n = n + 1
-        return returnInverseElementLoop(b_t_1, b_t_2, n)
-    return returnInverseElementLoop(b_s_1, b_s_2, 1)
-
-def returnInverseElement(a,b):
-    if(a>b):
-        return returnInverseElementAPI(a,b)
-    else:
-        return returnInverseElementAPI(b,a)
+def int_to_char(char_list):
+    """
+    把整型密文/明文空间list转化为字符list，规则是0对应a，25对应z
+    :param char_list: 要转化的整型密文/明文空间list
+    :return: 转化好的字符密文/明文空间list
+    """
+    res = []
+    for i in char_list:
+        res.append(chr(i + 97))
+    return res
