@@ -1,3 +1,9 @@
+"""
+@date: 2020-4-10
+@author: WangTingZheng
+@feature: 这里定义了一些加密/解密的函数
+"""
+
 import cryptographyImmortal.convert as convert
 import cryptographyImmortal.check as check
 import cryptographyImmortal.affine as affine

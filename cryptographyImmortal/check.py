@@ -1,3 +1,10 @@
+"""
+@date: 2020-4-10
+@author: WangTingZheng
+@feature: 这里定义了一些输入检查函数
+"""
+
+
 def check_list(inf_list):
     """
     检查用户输入的明文或密文空间是否合法

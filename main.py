@@ -1,3 +1,10 @@
+"""
+@date: 2020-4-10
+@author: WangTingZheng
+@feature: 这里是一个测试函数
+"""
+
+
 import cryptographyImmortal.action as action
 
 Encoding_list = ["c", "h", "i", "n", "a"]

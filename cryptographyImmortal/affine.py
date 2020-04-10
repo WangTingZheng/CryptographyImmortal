@@ -1,3 +1,10 @@
+"""
+@date: 2020-4-10
+@author: WangTingZheng
+@feature: 这里定义了一些有关辗转相除法、逆元的函数
+"""
+
+
 def return_a_in_affine(a, b, temp_list):
     """
     使用辗转相除法，拿到a,b列的式子中的每一个除数c并转化为一个list，接到temp_list后面, a必须大于b

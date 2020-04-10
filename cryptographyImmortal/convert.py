@@ -1,3 +1,10 @@
+"""
+@date: 2020-4-10
+@author: WangTingZheng
+@feature: 这里定义了一些有关转换的函数
+"""
+
+
 def gcd(a, b):
     """
     求两个整数的最大公约数, 输入的a必须大于b
