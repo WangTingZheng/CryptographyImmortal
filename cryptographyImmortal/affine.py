@@ -36,12 +36,12 @@ def return_list(a, b):
     if a > b:
         return return_a_in_affine(a, b, [])
     else:
-        return_a_in_affine(b, a, [])
+        return return_a_in_affine(b, a, [])
 
 
-def return_inverse_element_temp(a, b):
+def return_inverse_element(a, b):
     """
-    返回逆元，即aa-1=1mod(b),返回a-1，a必须大于b
+    返回逆元，即aa-1=1mod(b),返回a-1
     :param a: 整型，所要求逆元的整数
     :param b: 整型，模数，被除数
     :return: 整型，逆元
@@ -55,23 +55,9 @@ def return_inverse_element_temp(a, b):
             b_t_2 = list_a[len(list_a) - n - 1] * b_2 + b_1
         else:
             if n % 2 != 0:
-                return a - b_2
+                return max(a, b) - b_2
             return b_2
         b_t_1 = b_2
         n = n + 1
         return return_inverse_element_loop(b_t_1, b_t_2, n)
-
     return return_inverse_element_loop(b_s_1, b_s_2, 1)
-
-
-def return_inverse_element(a, b):
-    """
-    返回逆元，即aa-1=1mod(b),返回a-1，a不必须大于b
-    :param a: 整型，所要求逆元的整数
-    :param b: 整型，模数，被除数
-    :return: 整型，逆元
-    """
-    if a > b:
-        return return_inverse_element_temp(a, b)
-    else:
-        return return_inverse_element_temp(b, a)
