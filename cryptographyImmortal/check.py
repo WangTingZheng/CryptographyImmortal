@@ -38,10 +38,13 @@ def check_list(inf_list):
     """
     for i in inf_list:
         if type(i) is not str:  # 如果有元素不是字符型的，不合法
+            print("[错误]：输入的明文空间或者密文空间有不是字符的元素")
             return False
         elif len(i) != 1:  # 如果一个元素不止有一个字符的，不合法
+            print("[错误]：输入的明文空间或者密文空间有不是单个字符的元素")
             return False
         elif ord(i) < 97 or ord(i) > 122:  # 如果字符不是小写字母，不合法
+            print("[错误]：输入的明文空间或者明文空间有不是小写字母的元素")
             return False
     return True
 
@@ -53,6 +56,7 @@ def check_key(a):
     :return: 如果合法，返回mod(26)后的密钥（整型变量），否则返回False
     """
     if type(a) is not int:  # 如果密钥不是整型，不合法
+        print("[错误]：输入的密钥空间有不是整数的密钥")
         return False
     return a % 26  # 如果合法，则返回mod（26)的密钥
 
@@ -70,6 +74,7 @@ def check_key_all(convert_list, k1, k2):
     if k1 is False and k2 is False:
         return False
     elif gcd(k1, 26) != 1:
+        print("[错误]：密钥k1不符合仿射密码要求，与26的最大公约数不是1")
         return False
     elif check_list(convert_list) is False:
         return False
